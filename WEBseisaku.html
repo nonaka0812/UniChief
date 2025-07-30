@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBサイト・ECサイト制作代行サービス</title>
+    <style>
+        /* リセットと基本設定 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Yu Gothic', 'メイリオ', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* わずかに暖かみのある白 */
+            overflow-x: hidden; /* 横スクロール禁止 */
+        }
+
+        /* ヒーローセクション (全画面表示) */
+        .hero {
+            background: linear-gradient(rgba(0, 50, 100, 0.7), rgba(0, 50, 100, 0.7)), url('https://via.placeholder.com/1500x800/20B2AA/FFFFFF?text=Your+Business+Image') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+            height: 100vh; /* ビューポートの高さに合わせる */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff; /* 白い文字色 */
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            color: #fff; /* 白い文字色 */
+        }
+
+        /* メインコンテンツコンテナ */
+        .container {
+            max-width: 1200px; /* 幅を広くする */
+            margin: 60px auto;
+            padding: 0 20px; /* 左右の余白 */
+        }
+
+        /* 全体的な見出しスタイル */
+        h2 {
+            font-size: 2.2em;
+            color: #1a5276; /* 深い青 */
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            position: relative;
+            font-weight: 600;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -2px; /* 下線の下に配置 */
+            transform: translateX(-50%);
+            width: 60px; /* 短い下線 */
+            height: 4px;
+            background-color: #5d9cec; /* アクセントカラーの太い下線 */
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .section-description {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .small-text {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        /* 箇条書き */
+        ul {
+            list-style: none; /* デフォルトのリストスタイルを削除 */
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        ul li::before {
+            content: '✓'; /* カスタムチェックマーク */
+            color: #28a745; /* 緑色 */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 各セクションのスタイル */
+        section {
+            background-color: #fff;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* 柔らかな影 */
+        }
+
+        /* 理由セクション */
+        .reason-section h2 {
+            color: #1a5276; /* 見出し色 */
+        }
+
+        .reason-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* 薄い下線 */
+        }
+
+        .reason-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* 制作フローセクション */
+        .flow-section {
+            background-color: #f2f7fc; /* 優しい背景色 */
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap; /* スマホで折り返す */
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .flow-step-item {
+            flex: 1 1 calc(33% - 40px); /* 3列表示 */
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            min-width: 280px; /* 最小幅 */
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flow-step-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .flow-step-item .step-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #5d9cec; /* アクセントカラー */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .flow-step-item h3 {
+            font-size: 1.3em;
+            color: #1a5276;
+            margin-bottom: 10px;
+        }
+
+        .flow-step-item p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* 料金表のスタイル */
+        .price-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .price-table th, .price-table td {
+            padding: 18px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .price-table th:last-child, .price-table td:last-child {
+            border-right: none;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-table thead th {
+            background-color: #e6f2ff; /* ヘッダー背景 */
+            color: #1a5276;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .price-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* 偶数行の背景色 */
+        }
+
+        .price-table tbody tr:hover {
+            background-color: #eef7ff; /* ホバー時の背景色 */
+        }
+
+        .price-table strong {
+            color: #d6330e; /* 料金強調色 */
+            font-size: 1.15em;
+        }
+
+        .price-table ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-table ul li {
+            padding-left: 0;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .price-table ul li::before {
+            content: ''; /* 不要なチェックマークを削除 */
+        }
+
+        /* 実績紹介セクション */
+        .works-section h2 {
+            color: #1a5276; /* 見出し色 */
+        }
+
+        .example-case {
+            display: flex;
+            flex-direction: row; /* デスクトップでは横並び */
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            gap: 40px; /* アイテム間の隙間 */
+        }
+
+        .example-case:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-case:nth-child(even) { /* 偶数番目のアイテムは画像とテキストを反転 */
+            flex-direction: row-reverse;
+        }
+
+        .example-case img {
+            width: 50%; /* 画像が半分を占めるように */
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example-case img:hover {
+            transform: translateY(-5px); /* 少し浮き上がる */
+        }
+
+        .example-case-info {
+            width: 50%; /* テキストが半分を占めるように */
+            text-align: left; /* 左揃え */
+        }
+
+        .example-case-info h3 {
+            font-size: 1.3em;
+            color: #1a5276;
+            margin-bottom: 10px;
+        }
+
+        .example-case-info p {
+            font-size: 0.95em;
+        }
+
+        /* FAQセクション */
+        .faq-section h2 {
+            color: #1a5276; /* 見出し色 */
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            background-color: #fcfcfc;
+            padding: 20px 25px;
+            border-left: 4px solid #5d9cec; /* アクセントカラーの左ボーダー */
+            border-radius: 6px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-item h3 {
+            font-size: 1.15em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* お問い合わせセクション */
+        .contact-section {
+            text-align: center;
+            padding: 50px 40px;
+            background-color: #e6f2ff; /* 優しい背景色 */
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-section h2 {
+            color: #1a5276;
+            margin-bottom: 30px;
+            border-bottom: none;
+        }
+
+        .contact-section h2::after {
+            display: none; /* 下線を削除 */
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #5d9cec; /* アクセントカラー */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px; /* 丸いボタン */
+            font-weight: bold;
+            font-size: 1.25em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 6px 15px rgba(93, 156, 236, 0.4); /* ボタンの影 */
+            margin-top: 20px; /* 上部に余白を追加 */
+        }
+
+        .contact-button:hover {
+            background-color: #4a8ad8;
+            transform: translateY(-3px);
+        }
+
+        /* スクロールアニメーション用CSS */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px); /* より大きく移動して表示 */
+            transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* レスポンシブデザイン（スマートフォン対応） */
+        @media (max-width: 992px) { /* タブレットとスマホ向け */
+            .flow-step-item {
+                flex: 1 1 calc(33% - 40px); /* 3列表示 */
+            }
+            .example-case {
+                flex-direction: column; /* タブレット以下は縦並び */
+                align-items: center;
+                gap: 20px;
+            }
+            .example-case:nth-child(even) {
+                flex-direction: column; /* 反転を解除 */
+            }
+            .example-case img,
+            .example-case-info {
+                width: 100%; /* 幅を100%に */
+                text-align: center; /* 中央揃えに */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .container {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 0.95em;
+            }
+
+            section {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+
+            /* 制作フローセクションのレスポンシブ */
+            .flow-step-item {
+                flex: 1 1 100%; /* スマホで1列表示 */
+                max-width: 100%;
+            }
+
+            .price-table th, .price-table td {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            .price-table th {
+                font-size: 0.95em;
+            }
+
+            .price-table td ul li {
+                font-size: 0.8em;
+            }
+
+            /* 料金表の横スクロール対応（スマホ向け） */
+            .plan-section {
+                overflow-x: auto; /* テーブルがはみ出したらスクロール */
+                -webkit-overflow-scrolling: touch; /* iOSのスクロールを滑らかに */
+                padding: 0; /* paddingを調整 */
+                box-shadow: none; /* 影を削除 */
+                background-color: transparent; /* 背景を透明に */
+            }
+
+            .plan-section .price-table {
+                width: 600px; /* スマホでテーブルの幅を固定 */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* テーブル自体に影 */
+            }
+
+            .example-case img {
+                margin-bottom: 20px;
+            }
+
+            .contact-section {
+                padding: 40px 20px;
+            }
+
+            .contact-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 class="hidden">「夢を叶える」WEBサイト・ECサイト制作代行サービス</h1>
+        <p class="hidden">あなたのビジネスを次のステージへ</p>
+    </div>
+
+    <div class="container">
+        <section class="intro-section hidden">
+            <h2>なぜ今、プロのWEBサイト・ECサイト制作代行が必要なのか？</h2>
+            <p>「自分で作れる」時代だからこそ、プロに任せる価値があります。私たちは、ただ作るだけではありません。あなたのビジネスを深く理解し、<b>「成果につながる」</b>サイトを共に創り上げます。</p>
+            <h3>こんなお悩み、ありませんか？</h3>
+            <ul>
+                <li>WEBサイトを作りたいけど、何から手をつけていいか分からない…</li>
+                <li>自分で作ったけれど、なんだかイマイチ集客できない…</li>
+                <li>ECサイトを始めたいけど、システムが難しそう…</li>
+                <li>制作会社は高そうだし、ちゃんと要望を聞いてくれるか不安…</li>
+            </ul>
+            <p>ご安心ください！私たちは、これらの悩みを解決し、あなたのビジネスを力強くサポートします。</p>
+        </section>
+
+        <section class="reason-section hidden">
+            <h2>貴社名が選ばれる3つの理由</h2>
+            <div class="reason-item">
+                <h3>1. 驚きの<b>コストパフォーマンス</b>と<b>迅速な対応</b>！</h3>
+                <p>「WEBサイト制作は高額」という常識を覆します。私たちは、徹底した効率化と独自のノウハウにより、<b>業界トップクラスの低価格</b>を実現。それでいて、デザイン性や機能性、集客力に妥協は一切ありません。</p>
+                <p>お問い合わせから制作、公開後のサポートまで、<b>迅速な対応</b>を心がけています。ビジネスチャンスを逃さないためにも、スピード感を持ったサイト構築は非常に重要です。</p>
+            </div>
+            <div class="reason-item">
+                <h3>2. 時間を削減し、<b>技術的な問題もまるごと解決！</b></h3>
+                <p>WEBサイトやECサイトの制作・運用には、専門的な知識や時間が必要です。デザイン、コーディング、サーバー設定、SEO対策…これらすべてを自社で行うのは、想像以上の労力と時間がかかります。</p>
+                <p>私たちにご依頼いただくことで、あなたはこれらの<b>時間と手間を大幅に削減</b>できます。さらに、ドメインやサーバー、SSL設定といった<b>複雑な技術的な問題もすべてお任せ</b>いただけます。「表示されない」「エラーが出る」といったトラブルにも迅速に対応し、安心してサイトを運用できる環境を提供します。あなたは本来の<b>ビジネスに集中し、売上アップやサービス向上</b>に時間を費やすことができるのです。</p>
+                <p>私自身、これまで数々の<b>WEBサイトやECサイトの作成に携わってきました</b>。その豊富な経験と専門知識を活かし、あなたの<b>「夢を叶える」</b>サイト制作をお約束します。</p>
+            </div>
+            <div class="reason-item">
+                <h3>3. <b>まるごとお任せ</b>の安心サポート！制作後も徹底伴走</h3>
+                <p>サイトは作って終わりではありません。私たちは、公開後の運用サポートも徹底的に行います。</p>
+                <ul>
+                    <li>記事を追加したいけど、やり方が分からない…</li>
+                    <li>新しい情報を載せたい！</li>
+                    <li>サイトの一部を修正したい…</li>
+                </ul>
+                <p>ご要望は、<a href="【※ここにGoogleフォームのリンクを挿入してください】" target="_blank" rel="noopener noreferrer">こちらのGoogleフォーム</a>から簡単にご依頼いただけます。私たちは、あなたが本業に集中できるよう、WEBサイトの運用を全面的にバックアップいたします。</p>
+            </div>
+        </section>
+
+        <section class="flow-section hidden">
+            <h2>制作の流れ：お問い合わせから公開まで</h2>
+            <p class="section-description">貴社とのスムーズな連携を大切にし、以下のようなステップで、質の高いWebサイト・ECサイトを構築します。</p>
+            <div class="flow-steps">
+                <div class="flow-step-item">
+                    <span class="step-number">01</span>
+                    <h3>お問い合わせ・ヒアリング</h3>
+                    <p>まずはお気軽にお問い合わせください。貴社のビジネス、目的、ターゲット層などを詳しくお伺いし、サイトの方向性を固めます。</p>
+                </div>
+                <div class="flow-step-item">
+                    <span class="step-number">02</span>
+                    <h3>企画・お見積もり</h3>
+                    <p>ヒアリング内容に基づき、サイトの構成案、デザイン案、必要な機能、概算費用をご提案します。この段階で疑問点はすべてクリアにしてください。</p>
+                </div>
+                <div class="flow-step-item">
+                    <span class="step-number">03</span>
+                    <h3>デザイン・開発</h3>
+                    <p>合意いただいた企画書に基づき、サイトのデザイン作成とシステムの開発を進めます。進捗は定期的にご報告し、ご確認いただきます。</p>
+                </div>
+                <div class="flow-step-item">
+                    <span class="step-number">04</span>
+                    <h3>テスト・公開</h3>
+                    <p>完成したサイトは、様々な環境で動作確認を行い、問題がないことを確認した後、公開します。検索エンジンへの登録もサポートします。</p>
+                </div>
+                <div class="flow-step-item">
+                    <span class="step-number">05</span>
+                    <h3>運用・サポート</h3>
+                    <p>サイト公開後も、保守管理や更新作業、SEO対策など、継続的なサポートを提供します。ビジネスの成長に合わせてサイトも育てていきましょう。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="plan-section hidden">
+            <h2>WEBサイト・ECサイト制作プラン</h2>
+            <p class="section-description">あなたのビジネス規模や目的に合わせて、最適なプランをご提案します。</p>
+            <p class="section-description">まず、すべてのプランにおいて、LP（ランディングページ）制作での<b>初期費用として10,000円</b>を頂戴しております。</p>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>プラン名</th>
+                        <th>ベーシックプラン</th>
+                        <th>プロプラン</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>こんな方におすすめ</th>
+                        <td>まずは費用を抑えてWEBサイトを持ちたい方</td>
+                        <td>本格的に集客・売上アップを目指したい方、運用も任せたい方</td>
+                    </tr>
+                    <tr>
+                        <th>月額料金</th>
+                        <td><b>5,000円</b></td>
+                        <td><b>25,000円</b></td>
+                    </tr>
+                    <tr>
+                        <th>初期費用</th>
+                        <td>10,000円 (LP制作料金として)</td>
+                        <td>10,000円 (LP制作料金として)</td>
+                    </tr>
+                    <tr>
+                        <th>サーバー維持費</th>
+                        <td>別途必要（月額約500円～1,500円、Shopify等ECは月額約3,800円～）</td>
+                        <td>別途必要（月額約500円～1,500円、Shopify等ECは月額約3,800円～）</td>
+                    </tr>
+                    <tr>
+                        <th>含まれる内容</th>
+                        <td>
+                            <ul>
+                                <li>企画・構成</li>
+                                <li>デザイン</li>
+                                <li>コーディング</li>
+                                <li>システム開発（必要な場合）</li>
+                                <li><b>サイトの保守・管理</b></li>
+                                <li><b>画像や文章の差し替えなどの更新作業</b></li>
+                                <li><b>サーバー・ドメイン・SSLの管理サポート</b></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>企画・構成</li>
+                                <li>デザイン</li>
+                                <li>コーディング</li>
+                                <li>システム開発</li>
+                                <li><b>サイトの保守・管理</b></li>
+                                <li><b>画像や文章の差し替えなどの更新作業</b></li>
+                                <li><b>新規記事の作成・デザインの修正・改修</b></li>
+                                <li><b>SEO対策（検索上位を狙う施策）</b></li>
+                                <li><b>サーバー・ドメイン・SSLの管理サポート</b></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="works-section hidden">
+            <h2>私たちの制作実績：お客様の「成功」を形にしたサイトたち</h2>
+            <p class="section-description">私たちは、お客様一人ひとりのビジネスの特性と目標を深く理解し、最適なWEBサイト・ECサイトを創り上げてきました。ここでは、その一部をご紹介させていただきます。それぞれのサイトが、お客様の事業の「顔」となり、集客や売上向上に貢献しています。</p>
+
+            <div class="example-case hidden">
+                <img src="https://via.placeholder.com/600x400/FFD700/000000?text=Handicraft+EC+Site" alt="手芸品のECサイト">
+                <div class="example-case-info">
+                    <h3>手芸品のECサイト：温もりを伝えるオンラインショップ</h3>
+                    <p><b>制作のポイント</b>: お客様の作品の美しさと温かみが伝わるよう、シンプルかつ洗練されたデザインを採用。直感的な商品検索と決済フローで、お客様の購入体験を向上させました。</p>
+                    <p>（お客様の声は現在準備中です。公開後、随時追加してまいります。）</p>
+                </div>
+            </div>
+
+            <div class="example-case hidden">
+                <img src="https://via.placeholder.com/600x400/8A2BE2/FFFFFF?text=Vintage+Clothing+EC+Site" alt="古着屋のECサイト">
+                <div class="example-case-info">
+                    <h3>古着屋のECサイト：一点ものの魅力を引き出すデザイン</h3>
+                    <p><b>制作のポイント</b>: 個性豊かな古着の一点ものの魅力を最大限に引き出すため、商品画像を大きく見せるギャラリー形式を採用。商品の状態を詳細に伝え、安心してお買い物ができるよう工夫しました。</p>
+                    <p>（お客様の声は現在準備中です。公開後、随時追加してまいります。）</p>
+                </div>
+            </div>
+
+            <p class="small-text center-text">（※上記はサンプルです。実際にご希望の画像を挿入し、内容を調整してください。）</p>
+        </section>
+
+        <section class="faq-section hidden">
+            <h2>よくある質問（FAQ）</h2>
+            <div class="faq-item">
+                <h3>Q: どのような業種のサイト制作に対応していますか？</h3>
+                <p>A: 業種・業態を問わず、様々なWEBサイト・ECサイト制作に対応可能です。小売業、飲食業、サービス業、製造業、士業など、幅広い実績がございますので、まずはお気軽にご相談ください。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q: サイト完成までの期間はどれくらいですか？</h3>
+                <p>A: サイトの規模や機能によって異なりますが、シンプルなLPであれば最短2週間〜1ヶ月程度、一般的なコーポレートサイトやECサイトであれば1ヶ月〜3ヶ月程度が目安となります。迅速な対応を心がけておりますので、お急ぎの場合もご相談ください。</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q: 制作後の修正や更新はどのくらいできますか？</h3>
+                <p>A: ベーシックプラン、プロプランともに、月額費用内で可能な範囲での更新・修正に対応いたします。画像や文章の差し替えなど、簡単な作業は<a href="【※ここにGoogleフォームのリンクを挿入してください】" target="_blank" rel="noopener noreferrer">Googleフォーム</a>からご依頼いただければ迅速に対応します。新規記事の作成やデザインの大幅な修正・改修はプロプランに含まれます。</p>
+            </div>
+        </section>
+
+        <section class="contact-section hidden">
+            <h2>無料相談・お問い合わせはこちらから！</h2>
+            <p>あなたのビジネスの未来を、今、形にしませんか？</p>
+            <p>Webサイトを持つことは、単なる情報発信ではありません。それは、あなたのビジネスの<b>「ブランディング」</b>を確立し、<b>「新たな顧客との接点」</b>を生み出し、<b>「集客力」</b>を飛躍的に向上させるための、最もパワフルな手段です。</p>
+            <p>私たちは、お客様一人ひとりの想いに寄り添い、共に悩み、共に考え、<b>「あなたのビジネスを次のステージへ押し上げる」</b>最高のパートナーでありたいと願っています。</p>
+            <a href="【※ここにGoogleフォームのリンクを挿入してください】" class="contact-button">無料相談・お問い合わせフォームへ</a>
+        </section>
+    </div>
+
+    <script>
+        const observerOptions = {
+            root: null, // ビューポートをルートとする
+            rootMargin: '0px',
+            threshold: 0.1 // 要素が10%見えたら発火
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を停止
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
