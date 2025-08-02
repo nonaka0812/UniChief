@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デザインの力でビジネスを加速するWebサイト｜UniChief</title>
+    <meta name="description" content="UniChiefは、ビジネスの価値を最大化するWebサイト制作のプロフェッショナルです。デザインの力で集客・信頼・効率化を実現します。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 共通CSS */
+        :root {
+            --primary-color: #0A2540;
+            --accent-color: #007BFF;
+            --background-color: #FFFFFF;
+            --light-gray-bg: #F6F9FC;
+            --text-color: #333D48;
+            --light-text-color: #5A6978;
+            --border-color: #E6E6E6;
+            --heading-font: 'Montserrat', 'Noto Sans JP', sans-serif;
+            --body-font: 'Noto Sans JP', sans-serif;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 12px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            letter-spacing: -1px;
+            font-weight: 800;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--light-text-color);
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            padding: 60px 24px;
+            max-width: 1100px;
+            margin: 80px auto;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: var(--body-font);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #0069D9;
+        }
+
+        .footer {
+            background-color: var(--light-gray-bg);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--light-text-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* 記事専用の新しいスタイル */
+        .article-content {
+            background-color: var(--background-color);
+            padding: 0;
+        }
+
+        /* セクションの背景色を交互に変更 */
+        .section-light {
+            background-color: var(--background-color);
+        }
+        
+        .section-gray {
+            background-color: var(--light-gray-bg);
+        }
+        
+        .hero-article {
+            padding: 100px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero-article h1 {
+            font-size: 3.8rem;
+            max-width: 900px;
+            margin: 0 auto 24px auto;
+        }
+        
+        .hero-article p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--light-text-color);
+        }
+        
+        .section-split {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-split.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .split-content {
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .split-content h3 {
+            font-size: 2rem;
+            text-align: left;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .split-content p {
+            font-size: 1rem;
+            color: var(--light-text-color);
+        }
+        
+        .split-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .visual-icon-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            z-index: 2;
+            transform: rotate(15deg);
+            transition: transform 0.4s ease;
+        }
+
+        .visual-icon-box:hover {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .visual-icon-box::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        .visual-icon-box.green {
+            background-color: #28a745;
+        }
+        .visual-icon-box.green::before {
+            background-color: #d4edda;
+        }
+        .visual-icon-box.blue {
+            background-color: #007BFF;
+        }
+        .visual-icon-box.blue::before {
+            background-color: #c0e0ff;
+        }
+        .visual-icon-box.orange {
+            background-color: #ffc107;
+        }
+        .visual-icon-box.orange::before {
+            background-color: #fff3cd;
+        }
+        
+        .visual-icon-box i {
+            margin-bottom: 10px;
+        }
+        
+        .visual-icon-box span {
+            font-family: var(--body-font);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+        
+        .bg-pattern.fade-right {
+            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+        }
+        
+        .bg-pattern.fade-left {
+            mask-image: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+        }
+
+        /* 新しいセクションのスタイル */
+        .why-us-section {
+            padding: 100px 24px;
+            text-align: center;
+        }
+        
+        .why-us-section h2 {
+            margin-bottom: 24px;
+        }
+
+        .why-us-section .section-description {
+            margin-bottom: 80px;
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .why-us-item {
+            background-color: var(--background-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+        }
+        
+        .why-us-item .icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .why-us-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .why-us-item p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+        }
+
+        /* ★★★ ここからアニメーション用のCSS ★★★ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ★★★ ここまでアニメーション用のCSS ★★★ */
+
+
+        /* レスポンシブ対応 */
+        @media (max-width: 900px) {
+            .section-split {
+                flex-direction: column;
+                gap: 40px;
+                padding: 80px 24px;
+            }
+            .section-split.reverse {
+                flex-direction: column;
+            }
+            .split-content h3 {
+                text-align: center;
+            }
+            .split-visual {
+                min-height: 250px;
+                order: -1;
+            }
+            .visual-icon-box {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+            .visual-icon-box::before {
+                top: 15px;
+                left: 15px;
+            }
+            .visual-icon-box span {
+                font-size: 1rem;
+            }
+            .why-us-section { padding: 80px 20px; }
+            .why-us-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                line-height: 1.7;
+            }
+
+            .hero-article h1 { font-size: 2.5rem; }
+            .hero-article p { font-size: 1rem; }
+            
+            .section-split {
+                padding: 60px 15px;
+            }
+
+            .why-us-item .icon {
+                margin-bottom: 24px;
+            }
+            .why-us-item h3 {
+                margin-bottom: 16px; 
+            }
+            
+            .cta-section {
+                padding: 60px 15px;
+                margin: 60px auto;
+            }
+            .cta-section h2 { font-size: 1.8rem; }
+            .cta-section p { font-size: 1rem; }
+
+            .btn { 
+                padding: 15px 30px; 
+                font-size: 0.9rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="article-content">
+        <section class="hero-article section-gray">
+            <div class="container">
+                <h1 class="reveal">
+                    Webサイトは、あなたの<br>
+                    ビジネスの未来をデザインする。
+                </h1>
+                <p class="reveal">
+                    単なる情報発信ツールではなく、集客、ブランド力、業務効率、そのすべてを<br>
+                    向上させるための強力な資産です。UniChiefが全力でサポートします。
+                </p>
+            </div>
+        </section>
+
+        <section class="section-split section-light reveal">
+            <div class="split-content">
+                <h3>ビジネスに、新たな顧客との出会いを。</h3>
+                <p>
+                    Webサイトは、24時間365日、休むことなくあなたのビジネスを世界に発信するものです。ターゲットに響くデザインで、新たな収益の機会を創ります。
+                </p>
+            </div>
+            <div class="split-visual">
+                <div class="visual-icon-box green">
+                    <i class="fas fa-chart-line"></i>
+                    <span>GROWTH</span>
+                </div>
+                <div class="bg-pattern fade-left"></div>
+            </div>
+        </section>
+
+        <section class="section-split reverse section-light reveal">
+            <div class="split-content">
+                <h3>ブランドの信頼性を、デザインの力で築く。</h3>
+                <p>
+                    ユーザーは、Webサイトのデザインを見て、その企業の信頼性を判断しています。洗練されたデザインで、あなたのブランド価値を高め、競合他社との差別化を図ります                </p>
+            </div>
+            <div class="split-visual">
+                <div class="visual-icon-box blue">
+                    <i class="fas fa-crown"></i>
+                    <span>TRUST</span>
+                </div>
+                <div class="bg-pattern fade-right"></div>
+            </div>
+        </section>
+
+        <section class="section-split section-light reveal">
+            <div class="split-content">
+                <h3>煩雑な業務をスマートに効率化する。</h3>
+                <p>
+                    Webサイトは、顧客からのよくある質問に自動で答えたり、問い合わせをスムーズに管理するツールにもなります。これにより、日々の業務負担を大幅に削減し、あなたは事業の本質的な成長に集中することができます。
+                </p>
+            </div>
+            <div class="split-visual">
+                <div class="visual-icon-box orange">
+                    <i class="fas fa-cogs"></i>
+                    <span>SMART</span>
+                </div>
+                <div class="bg-pattern fade-left"></div>
+            </div>
+        </section>
+
+        <section class="why-us-section section-gray">
+            <div class="container">
+                <h2 class="reveal">UniChiefが選ばれる理由</h2>
+                <p class="section-description reveal">
+                    成果を追求するUniChiefのサービスが、お客様のビジネスの成功を力強く後押しします。
+                </p>
+                <div class="why-us-grid">
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-bullseye icon"></i>
+                        <h3>戦略的な企画提案</h3>
+                        <p>お客様の目的とターゲットを深く理解し、成果を最大化するためのサイト構造とコンテンツを設計します。</p>
+                    </div>
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-palette icon"></i>
+                        <h3>成果につながるデザイン</h3>
+                        <p>ブランドイメージを高め、ユーザーが直感的に操作できる、美しさと使いやすさを両立したデザインを提供します。</p>
+                    </div>
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-shield-alt icon"></i>
+                        <h3>安心の公開・運用サポート</h3>
+                        <p>サーバー設定から公開後のメンテナンスまで一貫してサポート。安心してビジネスに集中できます。</p>
+                    </div>
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-hand-holding-usd icon"></i>
+                        <h3>安心の業界最安値</h3>
+                        <p>月額5,000円から始められるシンプルな料金体系。余計なコストを徹底的に削減し、誰でもWebサイトを始めやすい価格を実現しました。</p>
+                    </div>
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-star icon"></i>
+                        <h3>無料で始められる安心感</h3>
+                        <p>まずはお客様のご要望に基づき、無料でLPのデザインを制作します。デザインにご満足いただけなければ料金は一切発生しません。</p>
+                    </div>
+                    <div class="why-us-item reveal">
+                        <i class="fas fa-medal icon"></i>
+                        <h3>実績豊富なプロが制作</h3>
+                        <p>Webサイト制作の経験豊富なプロが、あなたのビジネスに最適なデザインを制作します。数々の制作実績から培ったノウハウで、成果に繋がるWebサイトをお届けします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section reveal">
+            <h2>デザインの力で、あなたのビジネスを全力サポート</h2>
+            <p>Webサイトに関するご相談は無料です。まずはお気軽にご要望をお聞かせください。</p>
+            <a href="https://page.line.me/193gossu" class="btn btn-primary">無料相談はこちら</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <ul class="footer-links" id="footer-links-container"></ul>
+        <p>&copy; 2025 UniChief. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const footerLinksData = [
+                { text: '運営会社', url: '#' },
+                { text: 'プライバシーポリシー', url: '#' },
+                { text: '特定商取引法に基づく表記', url: '#' },
+            ];
+
+            const footerLinksContainer = document.getElementById('footer-links-container');
+            if (footerLinksContainer) {
+                footerLinksData.forEach(linkInfo => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.textContent = linkInfo.text;
+                    a.href = linkInfo.url;
+                    li.appendChild(a);
+                    footerLinksContainer.appendChild(li);
+                });
+            }
+
+            // ★★★ ここからアニメーション用のJavaScript ★★★
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => { observer.observe(el); });
+            // ★★★ ここまでアニメーション用のJavaScript ★★★
+        });
+    </script>
+</body>
+</html>
